@@ -1,0 +1,1 @@
+export default {content:['./src/**/*.{astro,html,js,ts,jsx,tsx}'],theme:{extend:{fontFamily:{serif:['Georgia','serif']},colors:{ink:'#10263d',cream:'#f7f1e8',gold:'#b8843f',sand:'#e9dfd1'}}},plugins:[]};
