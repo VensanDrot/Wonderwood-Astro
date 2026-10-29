@@ -1,0 +1,1 @@
+@tailwind base;@tailwind components;@tailwind utilities;html{scroll-behavior:smooth}body{margin:0;background:#f7f1e8;color:#10263d}.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.on{opacity:1;transform:none}.track::-webkit-scrollbar{display:none}.track{scrollbar-width:none}
