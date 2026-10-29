@@ -1,6 +1,62 @@
 ---
 const base='https://pub-1f5a0b5c9e954dd29bbd15d75eecc956.r2.dev';
 const doors=['navy-gold-ornate.png','natural-wood-workshop.png','white-clean-circle.png','olive-medallion.png','ivory-silver-ornate.png','navy-clean-circle.png','taupe-oval-fixed.png','olive-clean-circle.png','taupe-gold-ornate.png'];
+const loopDoors=[...doors,...doors,...doors];
 ---
-<div class="relative mt-10"><button class="prev hidden lg:grid absolute left-0 top-1/2 -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full border border-gold/40 bg-cream/90 text-2xl leading-none pb-[3px]">‹</button><div id="door-track" class="track flex gap-3 lg:gap-5 overflow-x-auto lg:px-14 snap-x snap-mandatory">{doors.map((d,i)=><figure class="shrink-0 w-[52%] sm:w-[38%] lg:w-[23%] snap-center group"><img src={base+'/doors/'+d} alt={'Custom door '+(i+1)} class="w-full h-auto object-contain transition duration-700 group-hover:scale-[1.025]" loading={i<4?'eager':'lazy'}/></figure>)}</div><button class="next hidden lg:grid absolute right-0 top-1/2 -translate-y-1/2 z-10 size-11 place-items-center rounded-full border border-gold/40 bg-cream/90 text-2xl">›</button></div>
-<script>const t=document.querySelector('#door-track');document.querySelector('.prev')?.addEventListener('click',()=>t?.scrollBy({left:-t.clientWidth*.72,behavior:'smooth'}));document.querySelector('.next')?.addEventListener('click',()=>t?.scrollBy({left:t.clientWidth*.72,behavior:'smooth'}));</script>
+<div class="relative mt-10">
+  <button class="prev hidden lg:grid absolute left-0 top-1/2 -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full border border-gold/40 bg-cream/90 text-2xl leading-none pb-[3px]" aria-label="Previous door">‹</button>
+  <div id="door-track" class="track flex gap-3 lg:gap-5 overflow-x-auto lg:px-14 snap-x snap-mandatory">
+    {loopDoors.map((d,i)=><figure class="shrink-0 w-[52%] sm:w-[38%] lg:w-[23%] snap-center group"><img src={base+'/doors/'+d} alt={'Custom door '+((i%doors.length)+1)} class="w-full h-auto object-contain transition duration-700 group-hover:scale-[1.025]" loading={i<doors.length+4?'eager':'lazy'}/></figure>)}
+  </div>
+  <button class="next hidden lg:grid absolute right-0 top-1/2 -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full border border-gold/40 bg-cream/90 text-2xl leading-none pb-[3px]" aria-label="Next door">›</button>
+</div>
+<script define:vars={{ count: doors.length }}>
+  const t=document.querySelector('#door-track');
+  const prev=document.querySelector('.prev');
+  const next=document.querySelector('.next');
+  let pauseUntil=0;
+  let autoTimer;
+  let correcting=false;
+
+  const cards=()=>Array.from(t?.children||[]);
+  const step=()=>{
+    const c=cards();
+    return c.length>1 ? c[1].offsetLeft-c[0].offsetLeft : (t?.clientWidth||300)*.52;
+  };
+  const middle=()=>cards()[count]?.offsetLeft||0;
+  const cycleWidth=()=>step()*count;
+
+  const resetAutoPause=()=>{ pauseUntil=Date.now()+45000; };
+  const move=(direction,manual=false)=>{
+    if(!t)return;
+    if(manual)resetAutoPause();
+    t.scrollBy({left:direction*step(),behavior:'smooth'});
+  };
+
+  requestAnimationFrame(()=>{ if(t)t.scrollLeft=middle(); });
+
+  t?.addEventListener('scroll',()=>{
+    if(correcting)return;
+    const m=middle(),w=cycleWidth();
+    if(!w)return;
+    if(t.scrollLeft<m-w*.55){
+      correcting=true;t.scrollLeft+=w;correcting=false;
+    }else if(t.scrollLeft>m+w*.55){
+      correcting=true;t.scrollLeft-=w;correcting=false;
+    }
+  },{passive:true});
+
+  prev?.addEventListener('click',()=>move(-1,true));
+  next?.addEventListener('click',()=>move(1,true));
+  t?.addEventListener('pointerdown',resetAutoPause,{passive:true});
+  t?.addEventListener('touchstart',resetAutoPause,{passive:true});
+  t?.addEventListener('wheel',resetAutoPause,{passive:true});
+
+  autoTimer=window.setInterval(()=>{
+    if(Date.now()>=pauseUntil && document.visibilityState==='visible') move(1,false);
+  },3500);
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='visible') pauseUntil=Math.max(pauseUntil,Date.now()+1500);
+  });
+</script>
