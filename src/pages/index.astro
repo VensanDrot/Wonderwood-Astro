@@ -109,11 +109,19 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
  .viz-results img{width:100%;height:100%;object-fit:contain;object-position:left center;display:block}
 }
 @media(min-width:600px) and (max-width:899px){
- .viz-mobile{display:none}.viz-desktop{display:grid;grid-template-columns:minmax(0,.76fr) 30px 118px 30px minmax(0,1.08fr);gap:10px;align-items:center}
- .viz-before img{width:100%;height:auto;display:block}.viz-sign{font-family:serif;font-size:34px;text-align:center;color:rgba(25,29,31,.55)}
- .viz-door-stack,.viz-results{display:grid;grid-template-rows:repeat(3,150px);gap:12px}
- .viz-door{height:150px;padding:3px}.viz-results figure{display:block;min-width:0;height:150px;overflow:hidden}
- .viz-results img{width:100%;height:100%;object-fit:contain;display:block}
+ .viz-mobile{display:none}
+ .viz-heading{display:none}
+ .viz-desktop{display:grid;grid-template-columns:1fr 42px 126px 42px 1fr;column-gap:0;align-items:center;width:100%}
+ .viz-before-wrap{justify-self:end;width:min(100%,280px);margin-right:14px;align-self:center;display:flex;flex-direction:column}
+ .viz-desktop-copy{display:block;margin-bottom:12px}.viz-desktop-copy h2{font-size:clamp(1.8rem,4.2vw,2.6rem);line-height:.9;letter-spacing:-.03em}
+ .viz-before{width:100%}.viz-before img{width:100%;height:auto;display:block}
+ .viz-desktop-subcopy{display:block;margin-top:10px}.viz-desktop-subcopy p{font-size:1rem;line-height:1.25;color:rgba(25,29,31,.67)}.viz-desktop-subcopy small{display:block;margin-top:6px;font-size:.78rem;line-height:1.4;color:rgba(25,29,31,.54)}
+ .viz-sign{font-family:serif;font-size:46px;line-height:1;text-align:center;color:rgba(25,29,31,.68)}
+ .viz-door-stack{display:grid;grid-template-rows:repeat(3,150px);gap:8px;width:126px;justify-self:center}
+ .viz-door{height:150px;padding:3px}
+ .viz-results{display:grid;grid-template-rows:repeat(3,158px);gap:6px;justify-self:start;width:min(100%,320px);margin-left:14px}
+ .viz-results figure{display:block;min-width:0;height:158px;overflow:hidden}.viz-results img{width:100%;height:100%;object-fit:contain;object-position:left center;display:block}
+ #space .viz-try{margin-top:8px;transform:translateY(-8px)}
 }
 </style>
 <script is:inline>
