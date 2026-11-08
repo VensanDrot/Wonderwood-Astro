@@ -9,7 +9,43 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
 <main><section class="relative min-h-[100svh] overflow-hidden"><picture><source media="(min-width:1000px)" srcset={R+'/hero/hero_desktop.png'}/><source media="(min-width:600px)" srcset={R+'/hero/hero_fold-tablet.png'}/><img src={R+'/hero/hero_mobile.png'} class="absolute inset-0 size-full object-cover" alt="Custom walnut interior door"/></picture><div class="hero-wash absolute inset-0"></div><div class="relative z-10 min-h-[100svh] flex flex-col justify-end lg:justify-center px-6 lg:px-[8vw] pb-20 lg:pb-0 max-w-4xl"><p class="text-[10px] tracking-[.28em] mb-5">MADE FOR YOUR SPACE</p><h1 class="hero-title font-serif text-[14vw] sm:text-7xl lg:text-[6.2rem] leading-[.86] tracking-[-.04em]"><span class="hero-let">LET</span><span class="hero-your-door">YOUR DOOR</span><span>PLAY</span><i>ITS ROLE.</i></h1><p class="max-w-sm mt-7 text-sm lg:text-base text-ink/65">Custom interiors start at the threshold.</p><a href="#designs" class="mt-8 inline-flex items-center gap-3 text-xs tracking-[.16em]">EXPLORE <ArrowDown size={15}/></a></div></section>
 <section class="bg-ink text-cream py-9"><div class="flex justify-around flex-wrap gap-5 px-5 text-[10px] tracking-[.22em]"><span>SOLID WOOD</span><span>CUSTOM SIZES</span><span>ANY FINISH</span><span>ENGRAVING</span><span>TWO-SIDED DESIGN</span></div></section>
 <section id="designs" class="px-5 lg:px-[7vw] py-24 lg:py-32 reveal"><p class="text-[10px] tracking-[.25em] text-gold mb-4">01 / DESIGN</p><div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5"><h2 class="font-serif text-5xl lg:text-7xl leading-none">YOUR DESIGN.<br/>YOUR PALETTE.</h2><p class="max-w-xs text-sm text-ink/55">One collection. Endless combinations.</p></div><DoorCarousel/></section>
-<section id="space" class="bg-sand px-5 lg:px-[7vw] py-24 lg:py-32 reveal"><div class="grid lg:grid-cols-2 gap-12 items-center"><div><p class="text-[10px] tracking-[.25em] text-gold mb-4">02 / VISUALIZE</p><h2 class="font-serif text-5xl lg:text-7xl">ONE ROOM.<br/>A DIFFERENT<br/>DOOR.</h2><p class="mt-6 max-w-sm text-ink/55">See the change before you choose.</p><a href="#quote" class="mt-8 inline-flex gap-2 items-center text-xs tracking-[.16em]">TRY YOUR SPACE <ArrowUpRight size={15}/></a></div><div class="relative overflow-hidden"><img src={R+'/hero/hero_fold-tablet.png'} class="w-full aspect-[4/3] object-cover" alt="Same room shown with a custom interior door"/><div class="absolute bottom-4 left-4 bg-cream/80 backdrop-blur px-4 py-3 text-[10px] tracking-[.18em]">YOUR SPACE / OUR DOOR</div></div></div></section>
+<section id="space" class="bg-sand px-5 lg:px-[7vw] py-20 lg:py-28 reveal">
+  <div class="max-w-3xl">
+    <h2 class="font-serif text-5xl lg:text-7xl leading-[.95]">ONE ROOM.<br/>DIFFERENT DOORS.</h2>
+    <p class="mt-5 text-base lg:text-lg text-ink/60">See the change before you choose.</p>
+  </div>
+  <div class="viz-desktop mt-10 lg:mt-14">
+    <figure class="viz-before"><img src={R+'/visualize/room-before.png'} alt="Bedroom during renovation before the door is installed"/></figure>
+    <div class="viz-sign" aria-hidden="true">+</div>
+    <div class="viz-door-stack">
+      <button class="viz-door active" data-viz="walnut" aria-label="Show walnut door"><img src={R+'/visualize/walnut-door.jpg'} alt="Walnut door"/></button>
+      <button class="viz-door" data-viz="cream" aria-label="Show cream door"><img src={R+'/visualize/cream-door.png'} alt="Cream door"/></button>
+      <button class="viz-door" data-viz="olive" aria-label="Show olive and gold door"><img src={R+'/doors/doors_olive-medallion.png'} alt="Olive and gold door"/></button>
+    </div>
+    <div class="viz-sign" aria-hidden="true">=</div>
+    <div class="viz-results">
+      <figure><img src={R+'/visualize/roopm-walnut.png'} alt="Bedroom with walnut door"/></figure>
+      <figure><img src={R+'/visualize/room=-cream.png'} alt="Bedroom with cream door"/></figure>
+      <figure><img src={R+'/visualize/room-olive-gold.png'} alt="Bedroom with olive and gold door"/></figure>
+    </div>
+  </div>
+  <div class="viz-mobile mt-8">
+    <figure class="overflow-hidden"><img src={R+'/visualize/room-before.png'} class="w-full" alt="Bedroom during renovation before the door is installed"/></figure>
+    <div class="flex items-center justify-center gap-3 my-4">
+      <span class="font-serif text-3xl">+</span>
+      <button class="viz-mobile-door active" data-viz="walnut" aria-label="Walnut door"><img src={R+'/visualize/walnut-door.jpg'} alt="Walnut door"/></button>
+      <button class="viz-mobile-door" data-viz="cream" aria-label="Cream door"><img src={R+'/visualize/cream-door.png'} alt="Cream door"/></button>
+      <button class="viz-mobile-door" data-viz="olive" aria-label="Olive and gold door"><img src={R+'/doors/doors_olive-medallion.png'} alt="Olive and gold door"/></button>
+      <span class="font-serif text-3xl">=</span>
+    </div>
+    <div class="viz-mobile-result">
+      <img data-result="walnut" src={R+'/visualize/roopm-walnut.png'} alt="Bedroom with walnut door"/>
+      <img data-result="cream" src={R+'/visualize/room=-cream.png'} alt="Bedroom with cream door" hidden/>
+      <img data-result="olive" src={R+'/visualize/room-olive-gold.png'} alt="Bedroom with olive and gold door" hidden/>
+    </div>
+  </div>
+  <a href="#quote" class="mt-8 inline-flex gap-2 items-center text-xs tracking-[.16em]">TRY YOUR SPACE <ArrowUpRight size={15}/></a>
+</section>
 <section id="craft" class="px-5 lg:px-[7vw] py-20 lg:py-28 reveal">
   <div class="max-w-3xl mb-10 lg:mb-14">
     <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[.95]">MADE AROUND<br/><i class="text-gold font-normal">YOUR IDEA.</i></h2>
@@ -46,4 +82,28 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
 .hero-title + p{margin-top:1.15rem;max-width:56vw}
 .hero-title ~ a{margin-top:1.25rem}
 }
-</style></body></html>
+</style>
+<style is:global>
+.viz-desktop{display:none}
+.viz-mobile-door,.viz-door{background:transparent;border:1px solid rgba(25,29,31,.14);transition:.25s ease}
+.viz-mobile-door.active,.viz-door.active{border-color:#b8843f}
+.viz-mobile-door{width:62px;height:82px;padding:3px}
+.viz-mobile-door img,.viz-door img{width:100%;height:100%;object-fit:contain}
+.viz-mobile-result{overflow:hidden}
+.viz-mobile-result img{width:100%;height:auto;display:block}
+@media(min-width:900px){
+ .viz-mobile{display:none}.viz-desktop{display:grid;grid-template-columns:minmax(0,1.15fr) 44px 92px 44px minmax(0,1.55fr);gap:14px;align-items:center}
+ .viz-before img{width:100%;height:auto;display:block}.viz-sign{font-family:serif;font-size:42px;text-align:center;color:rgba(25,29,31,.55)}
+ .viz-door-stack{display:grid;gap:10px}.viz-door{height:112px;padding:4px}
+ .viz-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.viz-results figure{min-width:0}.viz-results img{width:100%;height:auto;display:block}
+}
+</style>
+<script is:inline>
+(()=>{
+ const setViz=(key)=>{
+   document.querySelectorAll('[data-viz]').forEach(b=>b.classList.toggle('active',b.dataset.viz===key));
+   document.querySelectorAll('[data-result]').forEach(img=>img.hidden=img.dataset.result!==key);
+ };
+ document.querySelectorAll('[data-viz]').forEach(b=>b.addEventListener('click',()=>setViz(b.dataset.viz)));
+})();
+</script></body></html>
