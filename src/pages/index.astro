@@ -69,7 +69,11 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
     <button type="button" class="project-close" data-close-project aria-label="Close">×</button>
     <p class="text-[10px] tracking-[.25em] text-gold">START A PROJECT</p>
     <h2 id="project-title" class="font-serif text-4xl lg:text-5xl leading-none mt-3">TELL US ABOUT<br/>YOUR DOOR.</h2>
-    <form id="project-form" class="project-form mt-8">
+    <form id="project-form" class="project-form mt-8" action="https://formsubmit.co/hello@doorofakind.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="New Door of a Kind project request"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="lead_source" id="lead-source" value="Direct website"/>
       <label>Name<input required name="name" autocomplete="name"/></label>
       <label>Email<input required type="email" name="email" autocomplete="email"/></label>
       <label>Phone <span>(optional)</span><input name="phone" autocomplete="tel"/></label>
@@ -152,7 +156,7 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
 (()=>{
  const partner=new URLSearchParams(location.search).get('source')==='partner'||location.pathname.startsWith('/partner'); if(partner)document.body.classList.add('partner-mode');
  const modal=document.querySelector('#project-modal'); const open=()=>{modal?.classList.add('open');modal?.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}; const close=()=>{modal?.classList.remove('open');modal?.setAttribute('aria-hidden','true');document.body.style.overflow=''}; document.querySelectorAll('[data-open-project]').forEach(b=>b.addEventListener('click',open)); document.querySelectorAll('[data-close-project]').forEach(b=>b.addEventListener('click',close)); document.addEventListener('keydown',e=>{if(e.key==='Escape')close()}); document.querySelectorAll('a[href="#quote"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();open()}));
- const form=document.querySelector('#project-form'); form?.addEventListener('submit',e=>{e.preventDefault(); const s=form.querySelector('.project-status'); if(s)s.textContent='Thanks — your request is ready. Online delivery is being connected now.';});
+ const lead=document.querySelector('#lead-source'); if(lead)lead.value=partner?'Partner / store website':'Direct website';
  const setViz=(key)=>{
    document.querySelectorAll('[data-viz]').forEach(b=>b.classList.toggle('active',b.dataset.viz===key));
    document.querySelectorAll('[data-result]').forEach(img=>img.hidden=img.dataset.result!==key);
