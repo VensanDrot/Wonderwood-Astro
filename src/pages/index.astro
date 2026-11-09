@@ -69,20 +69,18 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
     <button type="button" class="project-close" data-close-project aria-label="Close">×</button>
     <p class="text-[10px] tracking-[.25em] text-gold">START A PROJECT</p>
     <h2 id="project-title" class="font-serif text-4xl lg:text-5xl leading-none mt-3">TELL US ABOUT<br/>YOUR DOOR.</h2>
-    <form id="project-form" class="project-form mt-8" action="https://formsubmit.co/hello@doorofakind.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="New Door of a Kind project request"/>
+    <form id="project-form" class="project-form mt-8" action="https://formsubmit.co/hello@doorofakind.com" method="POST">
+      <input type="hidden" name="_subject" value="New Door of a Kind inquiry"/>
       <input type="hidden" name="_captcha" value="false"/>
       <input type="hidden" name="_template" value="table"/>
       <input type="hidden" name="lead_source" id="lead-source" value="Direct website"/>
+      <input type="hidden" name="_next" value="https://doorofakind.com/thank-you"/>
       <label>Name<input required name="name" autocomplete="name"/></label>
-      <label>Email<input required type="email" name="email" autocomplete="email"/></label>
-      <label>Phone <span>(optional)</span><input name="phone" autocomplete="tel"/></label>
-      <label>Project location <span>(optional)</span><input name="location" placeholder="City / ZIP"/></label>
-      <label>What are you looking for?<select name="projectType"><option>Interior door</option><option>Multiple interior doors</option><option>Custom / two-sided design</option><option>Not sure yet</option></select></label>
-      <label>Tell us about your project<textarea name="details" rows="4" placeholder="Size, style, finish, quantity, timeline — whatever you know."></textarea></label>
-      <label>Photos <span>(optional)</span><input type="file" name="photos" accept="image/*" multiple/></label>
+      <label>Preferred contact<select required name="preferred_contact"><option value="">Choose one</option><option>Email</option><option>Phone / text</option></select></label>
+      <label>Email<input type="email" name="email" autocomplete="email"/></label>
+      <label>Phone<input name="phone" autocomplete="tel"/></label>
       <button class="project-submit" type="submit">SEND REQUEST <span>↗</span></button>
-      <p class="project-status" aria-live="polite"></p>
+      <p class="project-status" aria-live="polite">Leave the email or phone number you’d like us to use.</p>
     </form>
   </div>
 </div>
