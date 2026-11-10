@@ -16,33 +16,33 @@ const R='https://pub-8a611935d9fb484d99efd9d57c7c4f66.r2.dev';
     <p class="mt-3 max-w-2xl text-sm lg:text-base leading-relaxed text-ink/55">Send us a photo of your room, pick a door, and we’ll show you how it could look in your space.</p>
   </div>
   <div class="viz-desktop mt-10 lg:mt-14">
-    <div class="viz-before-wrap"><div class="viz-desktop-copy"><h2 class="font-serif">ONE ROOM.<br/>DIFFERENT DOORS.</h2></div><figure class="viz-before"><img src={R+'/visualize/room-before.jpg'} alt="Bedroom during renovation before the door is installed"/></figure><div class="viz-desktop-subcopy"><p>See the change before you choose.</p><small>Send us a photo of your room, pick a door, and we’ll show you how it could look in your space.</small></div></div>
+    <div class="viz-before-wrap"><div class="viz-desktop-copy"><h2 class="font-serif">ONE ROOM.<br/>DIFFERENT DOORS.</h2></div><figure class="viz-before"><img src={R+'/visualize/original-room.png'} alt="Bedroom during renovation before the door is installed"/></figure><div class="viz-desktop-subcopy"><p>See the change before you choose.</p><small>Send us a photo of your room, pick a door, and we’ll show you how it could look in your space.</small></div></div>
     <div class="viz-sign" aria-hidden="true">+</div>
     <div class="viz-door-stack">
-      <button class="viz-door active" data-viz="walnut" aria-label="Show walnut door"><img src={R+'/visualize/walnut-door.jpg'} alt="Walnut door"/></button>
-      <button class="viz-door" data-viz="cream" aria-label="Show cream door"><img src={R+'/visualize/cream-door.png'} alt="Cream door"/></button>
-      <button class="viz-door" data-viz="olive" aria-label="Show olive and gold door"><img src={R+'/doors/doors_olive-medallion.png'} alt="Olive and gold door"/></button>
+      <button class="viz-door active" data-viz="walnut" aria-label="Show walnut door"><img src={R+'/doors/walnut-classic.png'} alt="Walnut door"/></button>
+      <button class="viz-door" data-viz="white" aria-label="Show white door"><img src={R+'/doors/white-classic-panel.png'} alt="White door"/></button>
+      <button class="viz-door" data-viz="mint" aria-label="Show mint and gold door"><img src={R+'/doors/mint-door.jpg'} alt="Mint and gold door"/></button>
     </div>
     <div class="viz-sign" aria-hidden="true">=</div>
     <div class="viz-results">
-      <figure><img src={R+'/visualize/walnut-after.png'} alt="Bedroom with walnut door"/></figure>
-      <figure><img src={R+'/visualize/cream-after.png'} alt="Bedroom with cream door"/></figure>
-      <figure><img src={R+'/visualize/olive-after.png'} alt="Bedroom with olive and gold door"/></figure>
+      <figure><img src={R+'/visualize/walnut-door-visual.png'} alt="Bedroom with walnut door"/></figure>
+      <figure><img src={R+'/visualize/white-door-visual.png'} alt="Bedroom with white door"/></figure>
+      <figure><img src={R+'/visualize/mint-door-visual.png'} alt="Bedroom with mint and gold door"/></figure>
     </div>
   </div>
   <div class="viz-mobile mt-8">
-    <figure class="overflow-hidden"><img src={R+'/visualize/room-before.jpg'} class="w-full" alt="Bedroom during renovation before the door is installed"/></figure>
+    <figure class="overflow-hidden"><img src={R+'/visualize/original-room.png'} class="w-full" alt="Bedroom during renovation before the door is installed"/></figure>
     <div class="flex items-center justify-center gap-3 my-4">
       <span class="font-serif text-3xl">+</span>
-      <button class="viz-mobile-door active" data-viz="walnut" aria-label="Walnut door"><img src={R+'/visualize/walnut-door.jpg'} alt="Walnut door"/></button>
-      <button class="viz-mobile-door" data-viz="cream" aria-label="Cream door"><img src={R+'/visualize/cream-door.png'} alt="Cream door"/></button>
-      <button class="viz-mobile-door" data-viz="olive" aria-label="Olive and gold door"><img src={R+'/doors/doors_olive-medallion.png'} alt="Olive and gold door"/></button>
+      <button class="viz-mobile-door active" data-viz="walnut" aria-label="Walnut door"><img src={R+'/doors/walnut-classic.png'} alt="Walnut door"/></button>
+      <button class="viz-mobile-door" data-viz="white" aria-label="White door"><img src={R+'/doors/white-classic-panel.png'} alt="White door"/></button>
+      <button class="viz-mobile-door" data-viz="mint" aria-label="Mint and gold door"><img src={R+'/doors/mint-door.jpg'} alt="Mint and gold door"/></button>
       <span class="font-serif text-3xl">=</span>
     </div>
     <div class="viz-mobile-result">
-      <img data-result="walnut" src={R+'/visualize/walnut-after.png'} alt="Bedroom with walnut door"/>
-      <img data-result="cream" src={R+'/visualize/cream-after.png'} alt="Bedroom with cream door" hidden/>
-      <img data-result="olive" src={R+'/visualize/olive-after.png'} alt="Bedroom with olive and gold door" hidden/>
+      <img data-result="walnut" src={R+'/visualize/walnut-door-visual.png'} alt="Bedroom with walnut door"/>
+      <img data-result="white" src={R+'/visualize/white-door-visual.png'} alt="Bedroom with white door" hidden/>
+      <img data-result="mint" src={R+'/visualize/mint-door-visual.png'} alt="Bedroom with mint and gold door" hidden/>
     </div>
   </div>
   <a href="#quote" class="viz-try mt-8 inline-flex gap-2 items-center text-xs tracking-[.16em]">TRY YOUR SPACE <ArrowUpRight size={15}/></a>
